@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Amex Offers",
+    "description": "Automatically add Amex Offers to your Account",
+    "version": "1.0",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": "amex_offers_extension.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ]
+}
