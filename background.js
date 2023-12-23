@@ -14,6 +14,6 @@ chrome.action.onClicked.addListener(async (tab) => {
             files: ["amex-offers.js"],
         }).then(() => console.log("amex script injected"));
     } else {
-        console.log("not on amex offers page")
+        chrome.tabs.create({ url: offers });
     }
 });
