@@ -1,11 +1,14 @@
 (async function () {
-    // Find all the "Add to Card" buttons on the page
-    var offerButtons = Array.from(document.getElementsByClassName("offer-cta")).filter(btn => btn.title == "Add to Card");
-    var index;
-    for (index = 0; index < offerButtons.length; ++index) {
-        console.log("Clicking Offer Button");
-        offerButtons[index].click();
-        // 2 seconds rate-limiting
+    // Find all the new "Add to List Card" buttons
+    var offerButtons = Array.from(
+        document.querySelectorAll('button[data-testid="merchantOfferListAddButton"]')
+    ).filter(btn => btn.title.toLowerCase() === "add to list card");
+
+    for (let i = 0; i < offerButtons.length; i++) {
+        console.log("Clicking Offer Button", i + 1, "of", offerButtons.length);
+        offerButtons[i].click();
+
+        // 2-second rate limit
         await new Promise(r => setTimeout(r, 2000));
     }
 })();
